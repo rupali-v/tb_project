@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="C:/Users/VT-PUN-00011-D/Desktop/Status_Bar_Final_123.css"> -->
+    <title>Progress Bar</title>
+
+    <style type="text/css">
+        /*Start Status Bar CSS------Vijay Patil*/
+        body {
+            margin-top:30px;
+        }
+        .stepwizard-step p {
+            margin-top: 0px;
+            color:#666;
+        }
+        .stepwizard-row {
+            display: table-row;
+        }
+        .stepwizard {
+            display: table;
+            width: 100%;
+            position: relative;
+        }
+        .stepwizard-step button[disabled] {
+
+        }
+        .stepwizard .btn.disabled, .stepwizard .btn[disabled], .stepwizard fieldset[disabled] .btn {
+            opacity:1 !important;
+            color:#bbb;
+        }
+        .stepwizard-row:before {
+            top: 14px;
+            bottom: 0;
+            position: absolute;
+            content:" ";
+            width: 100%;
+            height: 3px;
+            background-color: #09c9c0;
+            border-color: #09c9c0;
+            z-index: 0;
+        }
+        .stepwizard-step {
+            display: table-cell;
+            text-align: center;
+            position: relative;
+        }
+        .mybutton {
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            padding: 6px 0;
+            font-size: 12px;
+            line-height: 1.428571429;
+            border-radius: 15px;
+        }
+        /*=== card with border ===*/
+        .card {
+            display:none;
+            min-width: 150px!important;
+        }
+        .card:before{
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color:  #fff;
+            top: -11px;
+            left: 90px;
+            transform: rotate(45deg);
+            border-top:1px solid gray;
+            border-left:1px solid gray;
+            z-index: 1;
+        }
+
+        .mybutton1:hover .status_card1 { 
+            display: block; 
+
+            text-align: left;
+            color:black;
+            width:250px; 
+            /* width:100% !important; */
+            margin-top: 30px; 
+            left:-80px;
+            height:200;
+            background-color: #fff;
+            border:1px solid gray;
+        }
+        @media only screen and (max-width: 375px){
+            .mybutton1:hover .status_card1 { 
+                display: block; 
+
+                text-align: left;
+                color:black;
+                width:250px; 
+                margin-top: 30px; 
+                margin-left:70px;
+                height:200;
+                background-color: #fff;
+                border:1px solid gray;
+                padding: 0px!important;
+            }
+            .card:before{
+                content: "";
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                background-color:  #fff;
+                top: -11px;
+                left: 15px!important;
+                transform: rotate(45deg);
+                border-top:1px solid gray;
+                border-left:1px solid gray;
+                z-index: 1;
+            }
+
+        }
+
+
+        @media only screen and (min-width: 376px) and (max-width: 767px) {
+            .mybutton1:hover .status_card1 { 
+                display: block; 
+
+                text-align: left;
+                color:black;
+                width:250px; 
+                margin-top: 30px; 
+                margin-left:65px!important;
+                height:200;
+                background-color: #fff;
+                border:1px solid gray;
+                padding: 0px!important;
+            }
+            .card:before{
+                content: "";
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                background-color:  #fff;
+                top: -11px;
+                left: 40px!important;
+                transform: rotate(45deg);
+                border-top:1px solid gray;
+                border-left:1px solid gray;
+                z-index: 1;
+            }
+        }
+        .mybutton2:hover .status_card2 { 
+            display: block; 
+
+            text-align: left;
+            color:black;
+            width:330px; 
+            margin-top: 30px; 
+            left:-110px;
+            height:200;
+            background-color: #fff;
+            border:1px solid gray;
+        } 
+        @media only screen and (max-width: 375px){
+            .mybutton2:hover .status_card2 { 
+                display: block; 
+
+                text-align: left;
+                color:black;
+                width:260px; 
+                margin-top: 30px; 
+                margin-left:95px;
+                height:200;
+                background-color: #fff;
+                border:1px solid gray;
+                padding: 0px!important;
+            }
+            .card:before{
+                content: "";
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                background-color:  #fff;
+                top: -11px;
+                left: 15px!important;
+                transform: rotate(45deg);
+                border-top:1px solid gray;
+                border-left:1px solid gray;
+                z-index: 1;
+            }
+        }
+        @media only screen and (min-width: 376px) and (max-width: 767px) {
+            .mybutton2:hover .status_card2 { 
+                display: block; 
+
+                text-align: left;
+                color:black;
+                width:260px; 
+                margin-top: 30px; 
+                margin-left:65px!important;
+                height:200;
+                background-color: #fff;
+                border:1px solid gray;
+                padding: 0px!important;
+            }
+            .card:before{
+                content: "";
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                background-color:  #fff;
+                top: -11px;
+                left: 40px!important;
+                transform: rotate(45deg);
+                border-top:1px solid gray;
+                border-left:1px solid gray;
+                z-index: 1;
+            }
+        }
+        .mybutton3:hover .status_card3 { 
+            display: block; 
+
+            text-align: left;
+            color:black;
+            width:330px; 
+            margin-top: 30px; 
+            left:-110px;
+            height:200;
+            background-color: #fff;
+            border:1px solid gray;
+        } 
+        @media only screen and (max-width: 375px){
+            .mybutton3:hover .status_card3 { 
+                display: block; 
+
+                text-align: left;
+                color:black;
+                width:270px; 
+                margin-top: 30px; 
+                margin-left:95px;
+                height:200;
+                background-color: #fff;
+                border:1px solid gray;
+                padding: 0px!important;
+            }
+            .mybutton3:hover .status_card3 p{
+                word-wrap: break-word!important;
+                font-size: 10px!important;
+            }
+
+            .card:before{
+                content: "";
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                background-color:  #fff;
+                top: -11px;
+                left: 80px;
+                transform: rotate(45deg);
+                border-top:1px solid gray;
+                border-left:1px solid gray;
+                z-index: 1;
+            }
+        }
+        @media only screen and (min-width: 376px) and (max-width: 767px) {
+            .mybutton3:hover .status_card3 { 
+                display: block; 
+
+                text-align: left;
+                color:black;
+                width:320px; 
+                margin-top: 30px; 
+                margin-left:65px!important;
+                height:200;
+                background-color: #fff;
+                border:1px solid gray;
+                padding: 0px!important;
+            }
+            .card:before{
+                content: "";
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                background-color:  #fff;
+                top: -11px;
+                left: 40px;
+                transform: rotate(45deg);
+                border-top:1px solid gray;
+                border-left:1px solid gray;
+                z-index: 1;
+            }
+        }
+        @media only screen and (max-width: 320px){
+            .mybutton3:hover .status_card3 { 
+                display: block; 
+
+                text-align: left;
+                color:black;
+                max-width:260px; 
+
+                margin-top: 30px; 
+                margin-left:80px;
+                height:200;
+                background-color: #fff;
+                border:1px solid gray;
+                padding: 0px!important;
+            }
+            .mybutton3:hover .status_card3 p{
+                overflow-wrap: break-word!important;
+                font-size: 9px!important;
+            }
+            .status_card3 .card:before{
+                content: "";
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                background-color:  #fff;
+                top: -11px;
+                left: 70px!important;
+                transform: rotate(45deg);
+                border-top:1px solid gray;
+                border-left:1px solid gray;
+                z-index: 1;
+            }
+        }
+        .status_heading {
+
+            font-weight: bold;
+            font-size: 13px;
+        }
+        .sub-heading{
+            font-weight: normal;
+            margin-left: -30px;
+        }
+        .note{
+            color: red!important;
+            font-size: 12px;
+            margin-left: 23px;
+        }
+        .display_none{
+            display: none;
+        }
+        /*second container style*/
+        .second{
+            margin-top: 150px;
+        }
+        .third{
+            margin-top: 150px;
+            margin-bottom: 150px;
+        }
+        h4{
+            color: gray;
+        }
+        .second .mybutton2{
+            background-color: #fff!important;
+            border:5px solid #09c9c0;;
+        }
+        .third .mybutton3{
+            background-color: #fff!important;
+            border:5px solid  #09c9c0;
+        }
+        .mybutton{
+            background-color: #09c9c0!important;
+            border-color: #09c9c0!important;
+        }
+        /*End Status Bar CSS------Vijay Patil*/
+
+    </style>
+
+</head>
+<body>
+    <!--  Start Status Bar HTML------Vijay Patil-->
+    <div class="container">
+        <h4>Status Bar with All Status:</h4>
+        <div class="stepwizard">
+            <div class="stepwizard-row setup-panel">
+                <div class="stepwizard-step col-xs-2"> 
+                    <a href="#step-1" type="button" class="btn btn-success mybutton mybutton1">
+                        <div class="card status_card1">
+                            <h6 style="color: #09c9c0;text-align: center;padding-top: 5px;">Deal Tracking Status  <hr></h6>
+                            <ul>
+                                <li class="status_heading"> New Deal</li>
+                                <ul class="sub-heading">
+                                    <li>Date & Time : 07-02-2020  11:00 am</li>
+                                </ul> 
+                            </ul>
+                        </div>
+                    </a>
+
+                </div>
+                <div class="stepwizard-step col-xs-2"> 
+                    <a href="#step-1" type="button" class="btn btn-success mybutton mybutton2">
+                        <div class="card status_card2 display_none">
+                            <h6 style="color: #09c9c0;text-align: center;padding-top: 5px;">Deal Tracking Status  <hr></h6>
+                            <ul>
+                                <li class="status_heading"> In Negotiation
+                                    <ul class="sub-heading">
+                                        <li>Pending with Buyer</li>
+                                        <li>Second Negotiation</li>
+                                        <li>Date & Time : 07-02-2020  11:00 am</li>
+                                    </ul> 
+                                </li>
+                            </ul>
+                            <hr>
+                        </div>
+                    </a>
+                </div>
+                <div class="stepwizard-step col-xs-2"> 
+                    <a href="#step-1" type="button" class="btn btn-success  mybutton mybutton3">
+                        <div class="card status_card3 display_none">
+                            <h6 style="color: #09c9c0;text-align: center;padding-top: 5px;">Deal Tracking Status  <hr></h6>
+                            <ul>
+                                <li class="status_heading">Non-binding Term-Sheet agreed
+                                    <ul class="sub-heading">
+                                        <li>Date & Time : 07-02-2020  11:00 am</li>
+                                    </ul> 
+                                </li>
+
+                            </ul>
+                            <p class="note"><strong>Note:</strong>As per User agreement signed by you, you are<br> not allowed to bypass us for executing this deal within <br>set agreed duration</p>
+                            <hr>
+                        </div>
+                    </a>
+                </div>
+                <div class="stepwizard-step col-xs-2"> 
+                    <a href="#step-1" type="button" class="btn btn-success  mybutton mybutton4"></a>
+                </div>
+                <div class="stepwizard-step col-xs-2"> 
+                    <a href="#step-1" type="button" class="btn btn-success   mybutton mybutton5"></a>
+                </div>
+                <div class="stepwizard-step col-xs-2"> 
+                    <a href="#step-1" type="button" class="btn btn-success mybutton mybutton6"></a>
+                </div>
+                <div class="stepwizard-step col-xs-2"> 
+                    <a href="#step-1" type="button" class="btn btn-success  mybutton mybutton7"></a>
+                </div>
+                <div class="stepwizard-step col-xs-2"> 
+                    <a href="#step-1" type="button" class="btn btn-success  mybutton mybutton8"></a>
+                </div>
+                <div class="stepwizard-step col-xs-2"> 
+                    <a href="#step-1" type="button" class="btn btn-success  mybutton mybutton9"></a>
+                </div>
+                <div class="stepwizard-step col-xs-2"> 
+                    <a href="#step-1" type="button" class="btn btn-success   mybutton mybutton10"></a>
+                </div>
+                <div class="stepwizard-step col-xs-2"> 
+                    <a href="#step-1" type="button" class="btn btn-success   mybutton mybutton11"></a>			  
+                </div>
+                <div class="stepwizard-step col-xs-2"> 
+                    <a href="#step-1" type="button" class="btn btn-success mybutton "></a>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--  End Status Bar HTML------Vijay Patil-->
+</body>
+</html>
